@@ -1,13 +1,13 @@
+import ctypes
 import pyttsx3
 import tkinter as tk
 import re
-import os
 from tkinter import messagebox
 from fpdf import FPDF
 
 engine = pyttsx3.init()
 voices = engine.getProperty("voices")
-engine.setProperty("voice", voices[1].id)
+engine.setProperty("voice", voices[0].id)
 
 def tts(message):
     
@@ -81,6 +81,8 @@ def submit():
         messagebox.showinfo(title="Note'HTB :", message=confirmation)
 
 if __name__ == "__main__":
+
+    ctypes.windll.kernel32.SetConsoleTitleW("Note'HTB :")
     
     window = tk.Tk()
     window.title("Note'HTB :")
